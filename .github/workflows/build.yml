@@ -32,4 +32,4 @@ jobs:
         run: wasm-pack build --target web --release
 
       - name: Modify package.json
-        run: echo "$(jq '.files[3] |= "snippets/intl-segmenter-polyfill-rs-81e6e01b0213c7d1/inline0.js"' pkg/package.json)" > pkg/package.json
+        run: echo "$(jq '.files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
