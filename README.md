@@ -2,9 +2,9 @@
 
 ## About
 
-This projects polyfills the [Intl.Segmenter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) API for browsers that do not support it.
+This project polyfills the [Intl.Segmenter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) API for browsers that do not support it.
 
-See bugzilla issue [here](https://bugzilla.mozilla.org/show_bug.cgi?id=1423593).
+See the bugzilla issue [here](https://bugzilla.mozilla.org/show_bug.cgi?id=1423593).
 
 ## Usage
 
@@ -30,6 +30,12 @@ sh icu-datagen.sh
 
 ```
 wasm-pack build --target web --release
+```
+
+### If you failed to resolve the file under `pkg/snippets`
+
+```
+echo "$(jq '.files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
 ```
 
 ### Use it in your project
