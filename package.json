@@ -1,0 +1,18 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host=127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "intl-segmenter-polyfill-rs": "file:./pkg"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5",
+    "vite-plugin-wasm": "^3.2.2"
+  }
+}

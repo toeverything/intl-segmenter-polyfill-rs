@@ -1,0 +1,35 @@
+name: Build Package
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+            profile: minimal
+            toolchain: stable
+            override: true
+            target: wasm32-unknown-unknown
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+      - name: Install icu4x-datagen
+        run: cargo install icu_datagen
+
+      - name: Generate data
+        run: sh icu-datagen.sh
+
+      - name: Build
+        run: wasm-pack build --target web --release
+
+      - name: Modify package.json
+        run: echo "$(jq '.files[3] |= "snippets/intl-segmenter-polyfill-rs-81e6e01b0213c7d1/inline0.js"' pkg/package.json)" > pkg/package.json
