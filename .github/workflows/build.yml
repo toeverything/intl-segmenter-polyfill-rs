@@ -32,4 +32,4 @@ jobs:
         run: wasm-pack build --target web --release
 
       - name: Modify package.json
-        run: echo "$(jq '.files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
+        run: echo "$(jq '.type |= "module" | .files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
