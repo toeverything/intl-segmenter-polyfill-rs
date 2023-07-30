@@ -32,10 +32,10 @@ sh icu-datagen.sh
 wasm-pack build --target web --release
 ```
 
-### If you failed to resolve the file under `pkg/snippets`
+### Run the following commands to standardize the package.json
 
 ```
-echo "$(jq '.files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
+echo "$(jq '.type |= "module" | .files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
 ```
 
 ### Use it in your project
