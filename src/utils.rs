@@ -12,7 +12,7 @@ pub fn set_panic_hook() {
 }
 
 #[wasm_bindgen(inline_js = "
-function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; };
+function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; }};
 module.exports = {
   __make_iter
 }
