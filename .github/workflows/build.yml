@@ -33,7 +33,4 @@ jobs:
         run: sh icu-datagen.sh
 
       - name: Build
-        run: wasm-pack build --target nodejs --release
-
-      - name: Modify package.json
-        run: sh before-publish.sh
+        run: sh build.sh

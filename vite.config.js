@@ -5,7 +5,4 @@ export default defineConfig({
   plugins: [
     wasm(),
   ],
-  optimizeDeps: {
-    exclude: ['intl-segmenter-polyfill-rs']
-  }
 });
