@@ -29,13 +29,13 @@ sh icu-datagen.sh
 ### Build with `wasm-pack build`
 
 ```
-wasm-pack build --target web --release
+wasm-pack build --target nodejs --release
 ```
 
 ### Run the following commands to standardize the package.json
 
 ```
-echo "$(jq '.type |= "module" | .files |= ["./*"]' pkg/package.json)" > pkg/package.json
+sh before-publish.sh
 ```
 
 ### Use it in your project
