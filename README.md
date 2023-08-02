@@ -26,40 +26,29 @@ cargo install icu_datagen
 sh icu-datagen.sh
 ```
 
-### Build with `wasm-pack build`
+### Build
 
 ```
-wasm-pack build --target nodejs --release
-```
-
-### Run the following commands to standardize the package.json
-
-```
-sh before-publish.sh
+sh build.sh
 ```
 
 ### Use it in your project
 
 ```js
+import * as IntlSegmeterPolyfill from "intl-segmenter-polyfill-rs";
 // Browsers like firefox
-import init, { Segmenter } from "intl-segmenter-polyfill-rs";
 if (Intl.Segmenter === undefined) {
-    // If you don't call init, the wasm won't be load.
-    await init().then(
-        () => {
-            Intl.Segmenter = Segmenter;
-            const segmenterFr = new Intl.Segmenter('fr', { granularity: 'sentence' });
-            const string1 = 'Hello World. Xin chào thế giới!';
-    
-            const iterator1 = segmenterFr.segment(string1)[Symbol.iterator]();
-    
-            console.log(iterator1.next().value.segment);
-            // Expected output: 'Hello World. '
-    
-            console.log(iterator1.next().value.segment);
-            // Expected output: 'Xin chào thế giới!'
-        }
-    );
+    Intl.Segmenter = IntlSegmeterPolyfill.Segmenter;
+    const segmenterFr = new Intl.Segmenter('fr', { granularity: 'sentence' });
+    const string1 = 'Hello World. Xin chào thế giới!';
+
+    const iterator1 = segmenterFr.segment(string1)[Symbol.iterator]();
+
+    console.log(iterator1.next().value.segment);
+    // Expected output: 'Hello World. '
+
+    console.log(iterator1.next().value.segment);
+    // Expected output: 'Xin chào thế giới!'
 }
 ```
 

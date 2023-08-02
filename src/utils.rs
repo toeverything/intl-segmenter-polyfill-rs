@@ -11,12 +11,7 @@ pub fn set_panic_hook() {
     console_error_panic_hook::set_once();
 }
 
-#[wasm_bindgen(inline_js = "
-function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; }};
-module.exports = {
-  __make_iter
-}
-")]
+#[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_name = "__make_iter")]
     pub fn make_iter(obj: &js_sys::Object);
