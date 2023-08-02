@@ -1,3 +1,5 @@
+#!/bin/sh
+
 icu4x-datagen --keys fallback/supplement/co@1 \
  segmenter/lstm/wl_auto@1 \
  fallback/parents@1 \

@@ -30,10 +30,10 @@ jobs:
         run: sh icu-datagen.sh
 
       - name: Build
-        run: wasm-pack build --target web --release
+        run: wasm-pack build --target nodejs --release
 
       - name: Modify package.json
-        run: echo "$(jq '.type |= "module" | .files |= ["./*"]' pkg/package.json)" > pkg/package.json
+        run: sh before-publish.sh
 
       - uses: actions/setup-node@v3
         with:
