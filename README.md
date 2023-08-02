@@ -35,7 +35,7 @@ wasm-pack build --target web --release
 ### Run the following commands to standardize the package.json
 
 ```
-echo "$(jq '.type |= "module" | .files[3] |= "snippets/*"' pkg/package.json)" > pkg/package.json
+echo "$(jq '.type |= "module" | .files |= ["./*"]' pkg/package.json)" > pkg/package.json
 ```
 
 ### Use it in your project

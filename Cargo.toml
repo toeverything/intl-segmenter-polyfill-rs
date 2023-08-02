@@ -1,7 +1,11 @@
 [package]
 name = "intl-segmenter-polyfill-rs"
+description = "A polyfill for Intl.Segmenter"
 version = "0.1.0"
 edition = "2018"
+homepage = "https://github.com/toeverything/intl-segmenter-polyfill-rs"
+repository = "https://github.com/toeverything/intl-segmenter-polyfill-rs"
+license = "MIT OR Apache-2.0"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
