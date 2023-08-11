@@ -15,14 +15,15 @@ EOF
 cat <<EOF >>pkg/esm/intl_segmenter_polyfill_rs_bg.js
 function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; }};
 EOF
+for f in pkg/esm/*.js ; do mv "$f" ""${f%.js}.mjs""; done
 
 echo "$(jq --argjson FILES $(ls pkg | jq -R -s -c 'split("\n")[:-1]') \
  '.files |= $FILES |
   .main |= "./cjs/intl_segmenter_polyfill_rs.js" |
-  .module |= "./esm/intl_segmenter_polyfill_rs.js" |
+  .module |= "./esm/intl_segmenter_polyfill_rs.mjs" |
   .types |= "./cjs/intl_segmenter_polyfill_rs.d.ts" |
   .exports.".".import.types |= "./esm/intl_segmenter_polyfill_rs.d.ts" |
-  .exports.".".import.default |= "./esm/intl_segmenter_polyfill_rs.js" |
+  .exports.".".import.default |= "./esm/intl_segmenter_polyfill_rs.mjs" |
   .exports.".".require.types |= "./esm/intl_segmenter_polyfill_rs.d.ts" |
   .exports.".".require.default |= "./cjs/intl_segmenter_polyfill_rs.js" |
   .sideEffects[0] |= "./esm/intl_segmenter_polyfill_rs.js"' \
