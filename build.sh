@@ -15,7 +15,7 @@ EOF
 cat <<EOF >>pkg/esm/intl_segmenter_polyfill_rs_bg.js
 function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; }};
 EOF
-for f in pkg/esm/*.js ; do mv "$f" ""${f%.js}.mjs""; done
+mv pkg/esm/intl_segmenter_polyfill_rs.js pkg/esm/intl_segmenter_polyfill_rs.mjs
 
 echo "$(jq --argjson FILES $(ls pkg | jq -R -s -c 'split("\n")[:-1]') \
  '.files |= $FILES |
