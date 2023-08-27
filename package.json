@@ -1,18 +1,21 @@
 {
-  "name": "vite-project",
+  "name": "intl-segmenter-polyfill-rs",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "description": "Please use the package.json under the pkg folder instead.",
   "scripts": {
-    "dev": "vite --host=127.0.0.1",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "sh ./build.sh",
+    "dev": "pnpm --filter intl-segmenter-polyfill-example dev",
+    "test": "playwright test"
   },
-  "dependencies": {
-    "intl-segmenter-polyfill-rs": "file:./pkg"
-  },
+  "license": "MIT OR Apache-2.0",
   "devDependencies": {
-    "vite": "^4.4.5",
-    "vite-plugin-wasm": "^3.2.2"
+    "@playwright/test": "^1.37.1",
+    "@types/node": "^20.5.6",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.2"
   }
 }

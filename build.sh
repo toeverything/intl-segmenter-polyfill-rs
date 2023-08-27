@@ -26,5 +26,5 @@ echo "$(jq --argjson FILES $(ls pkg | jq -R -s -c 'split("\n")[:-1]') \
   .exports.".".import.default |= "./esm/intl_segmenter_polyfill_rs.mjs" |
   .exports.".".require.types |= "./esm/intl_segmenter_polyfill_rs.d.ts" |
   .exports.".".require.default |= "./cjs/intl_segmenter_polyfill_rs.js" |
-  .sideEffects[0] |= "./esm/intl_segmenter_polyfill_rs.js"' \
+  .sideEffects[0] |= "./esm/intl_segmenter_polyfill_rs.mjs"' \
  pkg/package.json)" > pkg/package.json

@@ -1,4 +1,4 @@
-name: Build Package
+name: Build & Test
 
 on:
   push:
@@ -34,3 +34,9 @@ jobs:
 
       - name: Build
         run: sh build.sh
+
+      - name: Install playwright browser
+        run: pnpm playwright install firefox
+
+      - name: Run playwright test
+        run: pnpm test -- --forbid-only
