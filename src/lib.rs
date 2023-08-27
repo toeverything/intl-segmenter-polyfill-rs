@@ -63,7 +63,7 @@ export interface Segmenter {
     segment(input: string): Segments;
 }
 
-export class Segmenter {
+export const Segmenter: {
     prototype: Segmenter;
 
     free(): void;
@@ -83,7 +83,7 @@ export class Segmenter {
      * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter).
      */
     new(locales?: BCP47LanguageTag | BCP47LanguageTag[], options?: SegmenterOptions): Segmenter;
-}
+};
 
 "#;
 
