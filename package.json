@@ -5,7 +5,8 @@
   "scripts": {
     "build": "sh ./build.sh",
     "dev": "pnpm --filter intl-segmenter-polyfill-example dev",
-    "test": "playwright test"
+    "test": "playwright test",
+    "lint": "eslint ./**/*.ts"
   },
   "license": "MIT OR Apache-2.0",
   "devDependencies": {
