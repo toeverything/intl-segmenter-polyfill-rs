@@ -38,6 +38,9 @@ importers:
       intl-segmenter-polyfill-rs:
         specifier: file:../pkg
         version: file:pkg
+      intl-segmenter-polyfill-rs-web:
+        specifier: file:../web
+        version: file:web
     devDependencies:
       '@swc/core':
         specifier: ^1.3.80
@@ -1707,5 +1710,10 @@ packages:
 
   file:pkg:
     resolution: {directory: pkg, type: directory}
+    name: intl-segmenter-polyfill-rs
+    dev: false
+
+  file:web:
+    resolution: {directory: web, type: directory}
     name: intl-segmenter-polyfill-rs
     dev: false

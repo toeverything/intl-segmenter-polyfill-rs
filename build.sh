@@ -2,6 +2,7 @@
 
 wasm-pack build --release --out-dir pkg/esm
 wasm-pack build --target nodejs --release --out-dir pkg/cjs
+wasm-pack build --target web --release --out-dir web
 mv pkg/cjs/LICENSE_APACHE pkg/LICENSE_APACHE
 mv pkg/cjs/LICENSE_MIT pkg/LICENSE_MIT
 mv pkg/cjs/README.md pkg/README.md
@@ -14,6 +15,16 @@ function __make_iter(proto) { proto[Symbol.iterator] = function () { return this
 EOF
 cat <<EOF >>pkg/esm/intl_segmenter_polyfill_rs_bg.js
 function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; }};
+EOF
+cat <<EOF >>web/intl_segmenter_polyfill_rs.js
+function __make_iter(proto) { proto[Symbol.iterator] = function () { return this; }};
+if (Intl.Segmenter === undefined) {
+    Object.defineProperty(Intl, 'Segmenter', {
+        value: Segmenter,
+        configurable: true,
+        writable: true,
+    });
+}
 EOF
 mv pkg/esm/intl_segmenter_polyfill_rs.js pkg/esm/intl_segmenter_polyfill_rs.mjs
 

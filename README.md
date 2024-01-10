@@ -6,6 +6,8 @@ This project polyfills the [Intl.Segmenter](https://developer.mozilla.org/en-US/
 
 See the bugzilla issue [here](https://bugzilla.mozilla.org/show_bug.cgi?id=1423593).
 
+**As firefox 122 will support the API, this project will be archived in a predictable future.**
+
 ## Usage
 
 ### Install `wasm-pack`
@@ -13,6 +15,10 @@ See the bugzilla issue [here](https://bugzilla.mozilla.org/show_bug.cgi?id=14235
 ```
 cargo install wasm-pack
 ```
+
+### Install `binaryen`
+
+Use your package manager to install `binaryen`.
 
 ### Install `icu4x-datagen`
 
@@ -50,6 +56,13 @@ if (Intl.Segmenter === undefined) {
     console.log(iterator1.next().value.segment);
     // Expected output: 'Xin chào thế giới!'
 }
+```
+
+### Use it directly in the browser
+
+```html
+<!-- Modify your src according to your need -->
+<script type="module" src="/node_modules/intl-segmenter-polyfill-rs-web/intl_segmenter_polyfill_rs.js"></script>
 ```
 
 ## License

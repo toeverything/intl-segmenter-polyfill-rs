@@ -14,10 +14,10 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook", "wee_alloc"]
 
 [dependencies]
-wasm-bindgen = "0.2.84"
+wasm-bindgen = "0.2.89"
 js-sys = "0.3.64"
 serde = { version = "1.0", features = ["derive"] }
-serde-wasm-bindgen = "0.4"
+serde-wasm-bindgen = "0.6.3"
 wee_alloc = { version = "0.4.5", optional = true }
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
@@ -25,14 +25,14 @@ wee_alloc = { version = "0.4.5", optional = true }
 # all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
 # code size when deploying.
 console_error_panic_hook = { version = "0.1.7", optional = true }
-icu = "1.2.0"
-icu_provider = "1.2.0"
-litemap = "0.7.0"
-zerovec = "0.9.4"
-icu_provider_adapters = "1.2.0"
+icu = "1.4.0"
+icu_provider = "1.4.0"
+litemap = "0.7.2"
+zerovec = "0.10.1"
+icu_provider_adapters = "1.4.0"
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.34"
+wasm-bindgen-test = "0.3.39"
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.

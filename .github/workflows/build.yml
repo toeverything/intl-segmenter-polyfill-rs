@@ -56,7 +56,7 @@ jobs:
       - name: Use Node.js LTS
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://npm.pkg.github.com
           cache: 'pnpm'
 
