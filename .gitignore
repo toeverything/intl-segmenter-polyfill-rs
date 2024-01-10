@@ -2,6 +2,7 @@
 **/*.rs.bk
 bin/
 pkg/
+web/
 wasm-pack.log
 
 node_modules/
