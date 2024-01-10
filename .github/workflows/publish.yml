@@ -27,10 +27,10 @@ jobs:
         run: cargo install icu_datagen
 
       - name: Generate data
-        run: sh icu-datagen.sh
+        run: bash icu-datagen.sh
 
       - name: Build
-        run: sh build.sh
+        run: bash build.sh
 
       - uses: actions/setup-node@v3
         with:

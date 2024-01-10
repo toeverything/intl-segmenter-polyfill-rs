@@ -8,6 +8,11 @@ See the bugzilla issue [here](https://bugzilla.mozilla.org/show_bug.cgi?id=14235
 
 **As firefox 122 will support the API, this project will be archived in a predictable future.**
 
+Packages are available at:
+
+- https://www.npmjs.com/package/intl-segmenter-polyfill-rs
+- https://www.npmjs.com/package/intl-segmenter-polyfill-rs-web
+
 ## Usage
 
 ### Install `wasm-pack`
@@ -29,13 +34,13 @@ cargo install icu_datagen
 ### Generate the data
 
 ```
-sh icu-datagen.sh
+bash icu-datagen.sh
 ```
 
 ### Build
 
 ```
-sh build.sh
+bash build.sh
 ```
 
 ### Use it in your project
