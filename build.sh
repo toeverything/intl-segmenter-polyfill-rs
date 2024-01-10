@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -eu -o pipefail
 
 wasm-pack build --release --out-dir pkg/esm
 wasm-pack build --target nodejs --release --out-dir pkg/cjs
@@ -39,3 +41,7 @@ echo "$(jq --argjson FILES $(ls pkg | jq -R -s -c 'split("\n")[:-1]') \
   .exports.".".require.default |= "./cjs/intl_segmenter_polyfill_rs.js" |
   .sideEffects[0] |= "./esm/intl_segmenter_polyfill_rs.mjs"' \
  pkg/package.json)" > pkg/package.json
+
+echo "$(jq \
+    '.name |= "intl-segmenter-polyfill-rs-web"' \
+    web/package.json)" > web/package.json
