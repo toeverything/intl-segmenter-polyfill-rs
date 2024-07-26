@@ -1,12 +1,14 @@
 # Intl-Segmenter-Polyfill-rs
 
+**This repo is archived since all major browsers support this feature.**
+
 ## About
 
 This project polyfills the [Intl.Segmenter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) API for browsers that do not support it.
 
 See the bugzilla issue [here](https://bugzilla.mozilla.org/show_bug.cgi?id=1423593).
 
-**As firefox 122 will support the API, this project will be archived in a predictable future.**
+**Since April 2024, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.**
 
 Packages are available at:
 
